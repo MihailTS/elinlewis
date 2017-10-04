@@ -1,0 +1,239 @@
+h1{
+    text-align:center;
+}
+p{
+    font-size:1.1em;
+}
+.quote {
+    float: none;
+    margin: 0 auto;
+    margin-top:45px;
+}
+
+.quote-left {
+    padding-right: 20px;
+}
+
+.quote-image {
+    height: 170px;
+    width: 200px;
+    margin-top: -55px;
+    float: right;
+    background: url(/storage/elfquote.png) no-repeat;
+    background-size: contain;
+}
+.quote-text {
+    position: relative;
+    background: #3c400b;
+    border-radius: .4em;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    /*border-radius:50px;
+    overflow: hidden;*/
+    border: 1px solid black;
+    padding: 10px 15px 15px 20px;
+    box-shadow: 0 1px 20px rgba(0, 0, 0, 1), -23px 0 20px -23px rgba(0, 0, 0, .8), 23px 0 20px -23px rgba(0, 0, 0, .8), 0 0 40px rgba(0, 0, 0, .1) inset;
+    font-size: 1.1em;
+    color: #3c400b;
+    transition: 5s;
+    -webkit-transition: 5s;
+    -moz-transition: 5s;
+    -ms-transition: 5s;
+    -o-transition: 5s;
+    text-shadow:none;
+    transition-property:color,text-shadow;
+}
+.typed-cursor{
+    display:none;
+}
+.quote-text::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 25px solid transparent;
+    border-right-color: #3c400b;
+    border-left: 0;
+    border-top: 0;
+    margin-top: -16.5px;
+    margin-left: -20px;
+}
+
+.quote-subscript {
+    float: right;
+}
+
+.quote-info {
+    padding: 10px 0;
+}
+
+.quote-note {
+    overflow: hidden;
+    padding: 5px 2px;
+    height: 30px;
+    border: 1px solid #777;
+    font-size: 0.8em;
+}
+.gallery-item{
+    margin-bottom:30px;
+}
+.gallery-item__name{
+    margin-top:5px;
+    color:white;
+    text-align:center;
+}
+.gallery-categories{
+    text-align:center;
+    margin-bottom:40px;
+}
+.gallery-categories__item{
+    background: url("/storage/wood.jpg") no-repeat 0 -92px;
+    display: inline-block;
+    height:25px;
+    position:relative;
+    border-radius: 10px;
+    border:1px solid white;
+    color:#cfcfcf;
+    text-align:center;
+    line-height:25px;
+    width:100px;
+    margin-right:5px;
+    text-shadow: none;
+
+}
+.gallery-categories__item-container{
+    height:40px;
+    margin-bottom:10px;
+    display: inline-block;
+}
+.gallery-categories__item-container:hover .gallery-categories__item, .gallery-categories__item_current{
+    top:15px;
+    color:white;
+}
+.gallery-categories:hover .gallery-categories__item_current{
+    top:0;
+}
+.gallery-categories .gallery-categories__item-container:hover .gallery-categories__item_current{
+    top:15px;
+}
+.art-slider{
+    float:none;
+    height:300px;
+    margin: 0px auto 10px auto;
+}
+.slick-slide.art-slider__item{
+    color:black;
+    margin:0 25px;
+    /*height:500px;*/
+    cursor: pointer;
+    position:relative;
+}
+.art-slider__item:focus{
+    outline: none;
+    border:none;
+}
+.art-slider__item-overlay-name,.art-slider__item-overlay{
+    display:none;
+}
+.art-slider__item-overlay-name{
+    color: white;
+    z-index: 1000;
+    font-size: 1.5em;
+    word-wrap: break-word;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+}
+.art-slider__item:hover .art-slider__item-overlay{
+    display:block;
+    width:100%;
+    text-align:center;
+    height:300px;
+    background:#171717;
+    opacity:0.6;
+    position:absolute;
+}
+.art-slider__item:hover .art-slider__item-overlay-name{
+    display: block;
+}
+.gallery-item__link{
+    display:block;
+    width:250px;
+    margin-bottom:30px;
+    overflow: hidden;
+}
+.gallery-item-container{
+    margin:0 auto;
+}
+.not-found-content{
+    margin:0 auto;
+    text-align:center;
+}
+.not-found-content_img{
+    width:50%;
+}
+.art-container{
+    overflow:hidden;
+}
+.art-image{
+    float:left;
+    width:50%;
+    text-align:center;
+}
+.art-image__img{
+    width:60%;
+}
+.art-info{
+    float:left;
+    width:50%;
+    padding:20px;
+}
+.art-image__zoom{
+    cursor:zoom-in;
+}
+.lb-container{
+    cursor:zoom-out;
+}
+.b-contacts a,.service-contact-link,.service-contact-link:hover{
+    color:white;
+}
+.service-contact-link{
+    text-decoration: underline;
+}
+.alert-danger{
+    background:none;
+}
+p a, p a:hover{
+    color:wheat;
+}
+input{
+    color:black;
+    margin-bottom:20px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 13px;
+    }
+    .not-found-content_img{
+        width:90%;
+    }
+}
+
+@media (max-width: 500px) {
+    .head-logo__title_painter{
+        display: block;
+        position:static;
+    }
+
+    .art-image,.art-info{
+        width:100%;
+    }
+    .quote-image {
+        width:140px;
+        margin-top:-10px;
+    }
+}

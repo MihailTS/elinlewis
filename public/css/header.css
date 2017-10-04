@@ -1,0 +1,203 @@
+
+@font-face {
+    font-family: 'GothicRus';
+    src: url('../fonts/GothicRus_Medium.eot');
+    src: local('☺'), url('../fonts/GothicRus_Medium.woff') format('woff'), url('../fonts/GothicRus_Medium.ttf') format('truetype'), url('../fonts/GothicRus_Medium.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Old Standard TT';
+    src: url('../fonts/ofont.ru_Old Standard TT.eot');
+    src: local('☺'), url('../fonts/ofont.ru_Old Standard TT.woff') format('woff'), url('../fonts/ofont.ru_Old Standard TT.ttf') format('truetype'), url('../fonts/ofont.ru_Old Standard TT.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.body-overlay{
+    filter: blur(60px);
+    opacity: 0.6;
+    z-index: 1;
+    top:0;
+    margin:0 auto;
+    height: 100vh;
+    background: radial-gradient(ellipse,rgba(0,0,0,.5),rgba(0,0,0,.5)),black;
+    position: fixed;
+}
+body{
+    z-index: 100;
+    font-family: 'Old Standard TT';
+    font-size:15px;
+
+    background: url(/storage/bookshelves.jpg);
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+    background-position: 0 0;
+    /*background:linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5) ),url("/storage/tavern.jpg") no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    background-position:center center;*/
+
+    /*background: #171717;
+    background: #1d1d1d;  /* fallback for old browsers
+    background: -webkit-linear-gradient(to right, #1d1d1d, #552813);  /* Chrome 10-25, Safari 5.1-6
+    background: linear-gradient(to right, #1d1d1d  , #552813); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
+*/
+    /*background: #7d7e7d; /* Old browsers
+    background: -moz-linear-gradient(45deg, #7d7e7d 0%, #0e0e0e 100%); /* FF3.6-15
+    background: -webkit-linear-gradient(45deg, #7d7e7d 0%,#0e0e0e 100%); /* Chrome10-25,Safari5.1-6
+    background: linear-gradient(45deg, #7d7e7d 0%,#0e0e0e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    text-shadow: #000000 2px 2px 2px;
+    color:#cfcfcf;
+    padding-bottom:30px;
+}
+header,footer{
+    z-index: 100;
+    position:relative;
+    overflow: hidden;
+}
+.b-content{
+    z-index: 100;
+    position:relative;
+}
+.navbar-default{
+    background:none;
+    border:none;
+    margin-top:-1px;
+    margin-bottom:40px;
+}
+.head-menu__list{
+    -webkit-box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.75);
+}
+.head-menu__list-item{
+    background: url("/storage/wood.PNG") no-repeat;
+    border: 1px solid black;
+    min-width: 140px;
+}
+.head-menu__list-item.head-menu__list-item_selected{
+    box-shadow:inset 4px 4px 5px 0px rgba(0,0,0,0.75);
+}
+.head-menu__list-item.head-menu__list-item_selected+.head-menu__list-item{
+    -webkit-box-shadow: -4px 0px 6px 0px #000000;
+    -moz-box-shadow: -4px 0px 6px 0px #000000;
+    box-shadow: -4px 0px 6px 0px #000000;
+}
+.head-menu__list-item.head-menu__list-item_selected a{
+    border-top:2px solid #777;
+    border-bottom:none;
+}
+.head-menu__list-item a:hover{
+    font-size:1.1em;
+}
+.navbar .navbar-nav .head-menu__list-item_special a{
+    font-weight:bold;
+    color:red !important;
+}
+.terricon_alert p:hover{
+    text-decoration: none;
+}
+.terricon_alert{
+    z-index:150;
+    color:white;
+    border:1px solid black;
+    top: 140px;
+    opacity:0.8;
+    background: #9a0002;
+    right: 0;
+    position: fixed;
+    padding: 10px;
+    padding-right: 40px;
+    border-radius: 20px 0px 0 20px;
+    transition:opacity 1s;
+}
+
+.terricon_alert:hover{
+    opacity: 1;
+}
+@media (min-width: 768px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+}
+@media (max-width: 1090px) {
+    .head-menu__list-item {
+        min-width:100px;
+    }
+    .head-menu__list-item a:hover{
+        font-size:1em;
+    }
+}
+@media (max-width: 768px) {
+    .terricon_alert{
+        left:0;
+        right:auto;
+        border-radius: 0 20px 20px 0;
+        padding:10px;
+        font-size:0.9em;
+        top:120px;
+    }
+    .head-menu__list-item {
+        border-bottom:none;
+        width:100%;
+        font-size:1.5em;
+    }
+    .head-menu{
+        width: 150px;
+        float: right;
+        overflow: hidden;
+    }
+}
+.navbar-default .navbar-nav>li.head-menu__list-item>a{
+    color: #cfcfcf;
+}
+.head-menu__list-item a{
+    border-bottom:2px solid #777;
+}
+.head-menu__list-item a:active{
+    border-top:2px solid #777;
+    border-bottom:none;
+}
+.head-menu__list-item:active{
+    box-shadow:inset 4px 4px 5px 0px rgba(0,0,0,0.75);
+}
+.head-logo__title_painter{
+    font-size:0.4em;
+    position: absolute;
+    left: -50%;
+    bottom:15%;
+}
+.head-logo__title{
+    font-family: 'GothicRus' !important;
+    position: relative;
+    display:inline-block;
+    font-size:3em;
+    margin:0;
+    color:black;
+    transition: 5s;
+    -webkit-transition: 5s;
+    -moz-transition: 5s;
+    -ms-transition: 5s;
+    -o-transition: 5s;
+    transition-property:color;
+}
+.head-logo{
+    text-align:center;
+    border-bottom:1px solid black;
+}
+.copyright{
+    text-align: center;
+    background:#333;
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+}
