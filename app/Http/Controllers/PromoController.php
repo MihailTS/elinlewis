@@ -38,4 +38,31 @@ class PromoController extends Controller
         $cookieJar->queue(cookie('promo', 'Y', 3600000));
         return redirect("/promo");
     }
+
+    public function winners(){
+        $promo=Promocode::select("id","value","terricon_action_place")->orderBy('terricon_action_place','asc')->take(10)->get();
+        $promo=$promo->shuffle();
+        $vk_members=[["value"=>"Амира Яхья","terricon_action_place"=>5],
+            ["value"=>"Максим Егоров","terricon_action_place"=>1],
+            ["value"=>"Александр Собка","terricon_action_place"=>8],
+            ["value"=>"Александр Михайлович","terricon_action_place"=>2],
+            ["value"=>"Влад Приходько","terricon_action_place"=>6],
+            ["value"=>"Егор Говоруха","terricon_action_place"=>3],
+            ["value"=>"Михаил Целуйко","terricon_action_place"=>1001],
+            ["value"=>"Элина Ардерихина","terricon_action_place"=>1000],
+            ];
+        shuffle($vk_members);
+        $vk_members=json_encode($vk_members);
+        return view('winners',["pageTitle"=>"Победители акции ТерриCON!","promoJson"=>$promo->toJson(),"vkJson"=>$vk_members]);
+    }
+
+    public function randomFillUnusedPromo(){
+        $promocodes = Promocode::select(['id','terricon_action_place'])->get();
+        $prize_count = 4;
+        foreach($promocodes as $promo){
+            $promo->terricon_action_place=rand($prize_count,$promocodes->count()+$prize_count);
+            $promo->save();
+        }
+        return "Готово";
+    }
 }

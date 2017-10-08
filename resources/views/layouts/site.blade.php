@@ -51,8 +51,8 @@
 </div>
 
 <footer>
-    <a href="/promo"><div class="terricon_alert">
-        <p style="font-size:1.3em">АКЦИЯ!!!</p>
+    <a href="/winners"><div class="terricon_alert">
+        <p style="font-size:1.3em">РЕЗУЛЬТАТЫ ЛОТЕРЕИ!</p>
         <p>В честь фестиваля ТерриCON</p>
     </div></a>
 

@@ -20,6 +20,7 @@
     top:0;
     margin:0 auto;
     height: 100vh;
+    width: 100%;
     background: radial-gradient(ellipse,rgba(0,0,0,.5),rgba(0,0,0,.5)),black;
     position: fixed;
 }
@@ -27,7 +28,6 @@ body{
     z-index: 100;
     font-family: 'Old Standard TT';
     font-size:15px;
-
     background: url(/storage/bookshelves.jpg);
     background-repeat: repeat-y;
     background-size: 100% auto;

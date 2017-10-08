@@ -48,7 +48,7 @@
     </ul>
     <p>Более подробная информация о призах <a style="color:wheat" href="https://vk.com/elventavern?w=wall-123633124_494">здесь</a>! Возможны небольшие изменения, так что заходите к нам почаще!:)</p>
     <br>
-    @if(!$alreadyMember)
+   {{-- @if(!$alreadyMember)
         <form method="post">
             <div><label><input class="promo-input" required type="text" name="vk" placeholder="Ссылка на VK"/> - Укажите ссылку на vk или ваше ФИО, чтоб нам было известно - кто из подписчиков победитель!</label></div>
             <div><label><input class="promo-input "type="text" name="promo" placeholder="Промокод"/> - Позволит поучаствовать в розыгрыше особых призов</label></div><br>
@@ -59,5 +59,5 @@
         <div class="promo-thanks">
             <p class="promo-thanks-text">Спасибо за участие в акции! Результаты будут скоро, нужно лишь немножко подождать!</p>
         </div>
-    @endif
+    @endif--}}
 @endsection
