@@ -2,17 +2,13 @@
 
 @section('content')
     <style>
-        .moving-item {
-            transition: all 1s ease;
-            -webkit-transition: all 1s ease;
-        }
-        .winner-list__item_gold{
+        .winner-list__item_prize:nth-child(1){
             box-shadow: 0px 0px 15px 7px #ffd700;
         }
-        .winner-list__item_silver{
+        .winner-list__item_prize:nth-child(2){
             box-shadow: 0px 0px 15px 7px #c0c0c0;
         }
-        .winner-list__item_bronze{
+        .winner-list__item_prize:nth-child(3){
             box-shadow: 0px 0px 15px 7px #cd7f32;
         }
         .winner-description{
@@ -50,7 +46,7 @@
             border-bottom:3px solid black;
             font-size:1.5em;
         }
-        .winner-button:active,.winner-button.focus{
+        .winner-button:active,.winner-button:focus{
             border-bottom:none;
             border-top:4px solid black;
         }
@@ -61,11 +57,10 @@
             position: relative;
         }
         .winner-list__item {
-            position: absolute;
             border: 1px solid #122b40;
             height: 40px;
             width: 200px;
-            background: url(/storage/wood.PNG) no-repeat;
+            background: url(/storage/wood.jpg) no-repeat;
             padding: 10px;
             margin-bottom: 10px;
             color: white;
@@ -77,6 +72,10 @@
         }
         .vk-winner__item{
             position:static;
+        }
+        .flip-list-move {
+            transition: transform 2s cubic-bezier(0.1, -0.6, 0.2, 0);
+            -webkit-transition: transform 2s cubic-bezier(0.1, -0.6, 0.2, 0);
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.4/vue.js"></script>
@@ -94,45 +93,20 @@
         </div>
         <div class="col-md-6 col-xs-12">
             <div class="winner-subtitle" v-if="winner">Победителями становятся обладатели промокодов:</div>
-            <ul class="winner-list">
-                <li class="winner-list__item moving-item" v-for="item in items" :class="((item.prize))"  :style="{ top: (item.position * 60) + 'px','background-position':(item.position * -85) + 'px -10px'}">@{{ item.value }}</li>
-            </ul>
+            <transition-group name="flip-list" tag="ul" class="winner-list">
+                <li class="winner-list__item" v-for="(item, index) in items" :class="(((winner && index<3)?'winner-list__item_prize':''))"  :style="{'background-position':(item.position * -85) + 'px -10px'}" :key="item.terricon_action_place">@{{ item.value }}</li>
+            </transition-group>
         </div>
         <div class="col-md-6 col-xs-12">
             <div class="winner-subtitle" v-if="winner" >А также поделившиеся записью о конкурсе:</div>
-            <ul class="winner-list">
-                <li class="winner-list__item moving-item" v-for="item in vkItems" :class="((item.prize))"  :style="{ top: (item.position * 60) + 'px','background-position':(item.position * -85) + 'px -10px'}">@{{ item.value }}</li>
-            </ul>
+            <transition-group name="flip-list" tag="ul" class="winner-list">
+            <li class="winner-list__item" v-for="(item, index) in vkItems" :class="(((winner && index<3)?'winner-list__item_prize':''))"  :style="{'background-position':(item.position * -85) + 'px -10px'}" :key="item.terricon_action_place">@{{ item.value }}</li>
+            </transition-group>
         </div>
     </div>
     <script>
-        var promoJson={!!$promoJson or "[]"!!};
-        promoJson.forEach(function (item, index) {
-            item.position = index;
-            item.prize=false;
-        });
-        var vkJson={!!$vkJson or "[]"!!};
-        vkJson.forEach(function (item, index) {
-            item.position = index;
-            item.prize=false;
-        });
-
-        var setPosition=function (item, index) {
-            item.position = index;
-            switch(index){
-                case 0:
-                    item.prize="winner-list__item_prize winner-list__item_gold";
-                    break;
-                case 1:
-                    item.prize="winner-list__item_prize winner-list__item_silver";
-                    break;
-                case 2:
-                    item.prize="winner-list__item_prize winner-list__item_bronze";
-                    break;
-                default:
-                    item.prize="winner-list__item_no-prize";
-            }
-        };
+        var promoJson={!!$promoJson!!};
+        var vkJson={!!$vkJson!!};
         var sortByPlace=function (a, b) {
             if (a.terricon_action_place > b.terricon_action_place) return 1;
             else if (a.terricon_action_place < b.terricon_action_place) return -1;
@@ -143,16 +117,14 @@
             data: {
                 winner: false,
                 items:promoJson,
-                vkItems:vkJson
+                vkItems:vkJson,
             },
             methods: {
                 changeOrder: function (event) {
                     var self = this;
                     self.winner = true;
-                    var newItems = self.items.slice().sort(sortByPlace);
-                    var newVkItems = self.vkItems.slice().sort(sortByPlace);
-                    newItems.forEach(setPosition);
-                    newVkItems.forEach(setPosition);
+                    this.items.sort(sortByPlace);
+                    this.vkItems.sort(sortByPlace);
                 }
             }
         });

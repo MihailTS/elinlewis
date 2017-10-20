@@ -53,7 +53,7 @@ class PromoController extends Controller
             ];
         shuffle($vk_members);
         $vk_members=json_encode($vk_members);
-        return view('winners',["pageTitle"=>"Победители акции ТерриCON!","promoJson"=>$promo->toJson(),"vkJson"=>$vk_members]);
+        return view('winners',["pageTitle"=>"Победители акции ТерриCON!","promoJson"=>$promo,"vkJson"=>$vk_members]);
     }
 
     public function randomFillUnusedPromo(){
